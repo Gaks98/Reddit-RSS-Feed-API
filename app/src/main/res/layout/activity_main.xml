@@ -14,6 +14,16 @@
         android:orientation="horizontal"
         android:weightSum="100"/>
 
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_weight="70"
+        android:textSize="15sp"
+        android:hint="Type a sub-reddit"
+        android:layout_gravity="bottom"
+        android:textAlignment="center"
+        android:id="@+id/etFeedName"/>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
