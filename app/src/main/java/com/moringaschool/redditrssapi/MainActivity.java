@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.d(TAG, "onCreate: starting.");
+        btnRefreshFeed = (Button) findViewById(R.id.btnRefreshFeed);
+        mFeedName = (EditText) findViewById(R.id.etFeedName);
+
         init();
 
     }
