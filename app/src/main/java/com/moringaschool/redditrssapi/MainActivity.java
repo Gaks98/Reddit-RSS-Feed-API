@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.moringaschool.redditrssapi.model.Feed;
+
+import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
@@ -23,5 +26,8 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         FeedApi feedApi = retrofit.create(FeedApi.class);
+
+        //from the FeedApi interface
+        Call<Feed> call = feedApi.getFeed();
     }
 }
