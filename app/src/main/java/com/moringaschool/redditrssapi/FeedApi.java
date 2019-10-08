@@ -9,7 +9,8 @@ public interface FeedApi {
     String BASE_URL = "https://www.reddit.com/r/";
 
     @GET("earthporn/.rss")
-    Call<Feed> getFeed;
+    Call<Feed> getFeed();
+
 
 
 }
