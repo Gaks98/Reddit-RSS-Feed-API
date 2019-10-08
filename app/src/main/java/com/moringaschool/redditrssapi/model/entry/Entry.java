@@ -74,4 +74,16 @@ public class Entry implements Serializable {
     public void setUpdated(String updated) {
         this.updated = updated;
     }
+
+    @Override
+    public String toString() {
+        return "\n\nEntry{" +
+                "content='" + content + '\'' +
+                ", author='" + author + '\'' +
+                ", id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", updated='" + updated + '\'' +
+                '}'+ "\n" +
+                "--------------------------------------------------------------------------------------------------------------------- \n";
+    }
 }
