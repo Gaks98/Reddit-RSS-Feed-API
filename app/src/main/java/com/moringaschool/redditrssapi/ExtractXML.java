@@ -10,6 +10,11 @@ public class ExtractXML {
     private String tag;
     private String xml;
 
+    public ExtractXML(String xml, String tag) {
+        this.tag = tag;
+        this.xml = xml;
+    }
+
     public List<String> start() {
         List<String> result = new ArrayList<>();
 
