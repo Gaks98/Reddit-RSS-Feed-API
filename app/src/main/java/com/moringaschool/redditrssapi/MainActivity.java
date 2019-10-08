@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<Feed>() {
             @Override
             public void onResponse(Call<Feed> call, Response<Feed> response) {
-
+                Log.d(TAG, "onResponse: feed: " + response.body().toString());
+                Log.d(TAG, "onResponse: Server Response: " + response.toString());
             }
 
             @Override
