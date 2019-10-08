@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String BASE_URL = "https://www.reddit.com/r/";
 
-//    private Button btnRefreshFeed;
-//    private EditText mFeedName;
-//    private String currentFeed;
+    private Button btnRefreshFeed;
+    private EditText mFeedName;
+    private String currentFeed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
