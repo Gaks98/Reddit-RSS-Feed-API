@@ -105,13 +105,25 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     int lastPosition = postContent.size() - 1;
-                    posts.add(new Post(
-                            entrys.get(i).getTitle(),
-                            entrys.get(i).getAuthor().getName(),
-                            entrys.get(i).getUpdated(),
-                            postContent.get(0),
-                            postContent.get(lastPosition)
-                    ));
+                    try{
+                        posts.add(new Post(
+                                entrys.get(i).getTitle(),
+                                entrys.get(i).getAuthor().getName(),
+                                entrys.get(i).getUpdated(),
+                                postContent.get(0),
+                                postContent.get(lastPosition)
+                        ));
+                    }catch (NullPointerException e){
+                        posts.add(new Post(
+                                entrys.get(i).getTitle(),
+                                "None",
+                                entrys.get(i).getUpdated(),
+                                postContent.get(0),
+                                postContent.get(lastPosition)
+                        ));
+                        Log.e(TAG, "onResponse: NullPointerException: " + e.getMessage() );
+                    }
+
                 }
 
 //                for(int j = 0; j<posts.size(); j++){
