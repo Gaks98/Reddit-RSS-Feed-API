@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -25,11 +27,20 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String BASE_URL = "https://www.reddit.com/r/";
 
+//    private Button btnRefreshFeed;
+//    private EditText mFeedName;
+//    private String currentFeed;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        init();
+
+    }
+
+    private void init(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(SimpleXmlConverterFactory.create())
