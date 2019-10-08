@@ -7,6 +7,8 @@ import android.os.Bundle;
 import com.moringaschool.redditrssapi.model.Feed;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
@@ -29,5 +31,17 @@ public class MainActivity extends AppCompatActivity {
 
         //from the FeedApi interface
         Call<Feed> call = feedApi.getFeed();
+
+        call.enqueue(new Callback<Feed>() {
+            @Override
+            public void onResponse(Call<Feed> call, Response<Feed> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Feed> call, Throwable t) {
+
+            }
+        });
     }
 }
