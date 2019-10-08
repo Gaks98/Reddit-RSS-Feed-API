@@ -126,14 +126,14 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-//                for(int j = 0; j<posts.size(); j++){
-//                    Log.d(TAG, "onResponse: \n " +
-//                            "PostURL: " + posts.get(j).getPostURL() + "\n " +
-//                            "ThumbnailURL: " + posts.get(j).getThumbnailURL() + "\n " +
-//                            "Title: " + posts.get(j).getTitle() + "\n " +
-//                            "Author: " + posts.get(j).getAuthor() + "\n " +
-//                            "updated: " + posts.get(j).getDate_updated() + "\n ");
-//                }
+                for(int j = 0; j<posts.size(); j++){
+                    Log.d(TAG, "onResponse: \n " +
+                            "PostURL: " + posts.get(j).getPostURL() + "\n " +
+                            "ThumbnailURL: " + posts.get(j).getThumbnailURL() + "\n " +
+                            "Title: " + posts.get(j).getTitle() + "\n " +
+                            "Author: " + posts.get(j).getAuthor() + "\n " +
+                            "updated: " + posts.get(j).getDate_updated() + "\n ");
+                }
 
                 ListView listView = (ListView) findViewById(R.id.listView);
                 CustomListAdapter customListAdapter = new CustomListAdapter(MainActivity.this, R.layout.card_layout_main, posts);
