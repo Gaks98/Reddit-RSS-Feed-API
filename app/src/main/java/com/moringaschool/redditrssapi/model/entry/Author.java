@@ -30,5 +30,12 @@ public class Author implements Serializable {
         this.uri = uri;
     }
 
+    @Override
+    public String toString() {
+        return "Author{" +
+                "name='" + name + '\'' +
+                ", uri='" + uri + '\'' +
+                '}' ;
+    }
 
 }
