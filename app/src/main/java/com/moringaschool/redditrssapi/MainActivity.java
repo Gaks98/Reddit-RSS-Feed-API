@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
@@ -41,6 +42,20 @@ public class MainActivity extends AppCompatActivity {
         mFeedName = (EditText) findViewById(R.id.etFeedName);
 
         init();
+
+        btnRefreshFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String feedName = mFeedName.getText().toString();
+                if(!feedName.equals("")){
+                    currentFeed = feedName;
+                    init();
+                }
+                else{
+                    init();
+                }
+            }
+        });
 
     }
 
