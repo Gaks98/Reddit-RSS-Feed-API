@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         FeedApi feedApi = retrofit.create(FeedApi.class);
 
         //from the FeedApi interface
-        Call<Feed> call = feedApi.getFeed();
+        Call<Feed> call = feedApi.getFeed(currentFeed);
 
         call.enqueue(new Callback<Feed>() {
             @Override
