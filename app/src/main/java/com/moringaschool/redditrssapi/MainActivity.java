@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListAdapter;
 import android.widget.Toast;
 
 import com.moringaschool.redditrssapi.model.Feed;
+import com.moringaschool.redditrssapi.model.entry.Entry;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,8 +41,12 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<Feed>() {
             @Override
             public void onResponse(Call<Feed> call, Response<Feed> response) {
-                Log.d(TAG, "onResponse: feed: " + response.body().toString());
+//                Log.d(TAG, "onResponse: feed: " + response.body().toString());
                 Log.d(TAG, "onResponse: Server Response: " + response.toString());
+
+                List<Entry> entrys = response.body().getEntrys();
+
+                Log.d(TAG, "onResponse: entrys: " + response.body().getEntrys());
             }
 
             @Override
