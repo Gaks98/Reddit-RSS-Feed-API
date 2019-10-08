@@ -28,4 +28,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //retrofit library
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    //retrofit XML converter
+    implementation 'com.squareup.retrofit2:converter-simplexml:2.6.2'
 }
