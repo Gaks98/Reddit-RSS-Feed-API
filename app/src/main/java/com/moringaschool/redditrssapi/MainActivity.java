@@ -3,6 +3,8 @@ package com.moringaschool.redditrssapi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.moringaschool.redditrssapi.model.Feed;
 
@@ -40,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Feed> call, Throwable t) {
-
+                Log.e(TAG, "onFailure: Unable to retrieve RSS: " + t.getMessage() );
+                Toast.makeText(MainActivity.this, "An Error Occured", Toast.LENGTH_SHORT).show();
             }
         });
     }
