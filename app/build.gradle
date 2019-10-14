@@ -42,5 +42,7 @@ dependencies {
     //CoordinatorLayout
     implementation 'com.google.android.material:material:1.0.0'
 
+    //Retrofit Gson converter
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
 
 }
