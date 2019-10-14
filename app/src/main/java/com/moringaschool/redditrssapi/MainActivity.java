@@ -9,10 +9,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.moringaschool.redditrssapi.Comments.CommentsActivity;
 import com.moringaschool.redditrssapi.model.Feed;
 import com.moringaschool.redditrssapi.model.entry.Entry;
 
@@ -28,7 +28,7 @@ import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
-    private static final String BASE_URL = "https://www.reddit.com/r/";
+    URLS urls = new URLS();
 
     private Button btnRefreshFeed;
     private EditText mFeedName;
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(urls.BASE_URL)
                 .addConverterFactory(SimpleXmlConverterFactory.create())
                 .build();
 
