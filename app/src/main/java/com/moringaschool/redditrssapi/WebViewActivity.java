@@ -35,5 +35,11 @@ public class WebViewActivity extends AppCompatActivity {
 
         webview.setWebViewClient(new WebViewClient(){
 
+                @Override
+                public void onPageFinished(WebView view, String url) {
+                    progressBar.setVisibility(View.GONE);
+                    loadingText.setText("");
+            }
+        });
     }
 }
