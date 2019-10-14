@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -139,6 +140,14 @@ public class CommentsActivity extends AppCompatActivity {
                 mListView = (ListView) findViewById(R.id.commentsListView);
                 CommentsListAdapter adapter = new CommentsListAdapter(CommentsActivity.this, R.layout.comments_layout, mComments);
                 mListView.setAdapter(adapter);
+
+
+                mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        getUserComment();
+                    }
+                });
 
                 mProgressBar.setVisibility(View.GONE);
                 progressText.setText("");
