@@ -24,6 +24,18 @@
             android:scaleType="centerCrop"
             android:id="@+id/postThumbnail"/>
 
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:id="@+id/btnPostReply"
+            android:textAlignment="center"
+            android:text="reply"
+            android:textSize="8sp"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/postThumbnail"
+            android:layout_marginRight="10dp"/>
+
+
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
