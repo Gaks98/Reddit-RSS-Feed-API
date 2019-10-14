@@ -13,8 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </RelativeLayout>
-
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
@@ -42,6 +40,10 @@
             android:layout_marginLeft="10dp">
 
         </RelativeLayout>
+
+    </RelativeLayout>
+
+
 
     </RelativeLayout>
 
