@@ -37,4 +37,10 @@ dependencies {
 
     //Universal Image Loader
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
+
+    //CoordinatorLayout
+    implementation 'com.google.android.material:material:1.0.0'
+
+
 }
