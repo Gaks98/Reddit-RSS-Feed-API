@@ -75,6 +75,7 @@ public class Entry implements Serializable {
         this.updated = updated;
     }
 
+
     @Override
     public String toString() {
         return "\n\nEntry{" +
