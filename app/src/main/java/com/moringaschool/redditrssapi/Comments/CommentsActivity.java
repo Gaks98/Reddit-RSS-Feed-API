@@ -1,5 +1,6 @@
-package com.moringaschool.redditrssapi;
+package com.moringaschool.redditrssapi.Comments;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -33,15 +33,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
-import com.moringaschool.redditrssapi.CustomListAdapter;
+
 import com.moringaschool.redditrssapi.ExtractXML;
+import com.moringaschool.redditrssapi.Comments.Comment;
 import com.moringaschool.redditrssapi.FeedApi;
 import com.moringaschool.redditrssapi.R;
 import com.moringaschool.redditrssapi.URLS;
 import com.moringaschool.redditrssapi.model.Feed;
 import com.moringaschool.redditrssapi.model.entry.Entry;
-
-import org.w3c.dom.Comment;
 
 /**
  * Created by User on 5/1/2017.
@@ -107,7 +106,6 @@ public class CommentsActivity extends AppCompatActivity {
                 for ( int i = 0; i < entrys.size(); i++){
                     ExtractXML extract = new ExtractXML(entrys.get(i).getContent(), "<div class=\"md\"><p>","</p>");
                     List<String> commentDetails = extract.start();
-
 
                     try{
                         mComments.add(new Comment(
@@ -182,6 +180,36 @@ public class CommentsActivity extends AppCompatActivity {
             Log.e(TAG, "initPost: ArrayIndexOutOfBoundsException: " + e.getMessage() );
         }
 
+        btnReply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: reply.");
+                getUserComment();
+            }
+        });
+
+        thumbnail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: Opening URL in webview: " + postURL);
+                Intent intent = new Intent(CommentsActivity.this, WebViewActivity.class);
+                intent.putExtra("url", postURL);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    private void getUserComment(){
+        final Dialog dialog = new Dialog(CommentsActivity.this);
+        dialog.setTitle("dialog");
+        dialog.setContentView(R.layout.comment_input_dialog);
+
+        int width = (int)(getResources().getDisplayMetrics().widthPixels*0.95);
+        int height = (int)(getResources().getDisplayMetrics().heightPixels*0.6);
+
+        dialog.getWindow().setLayout(width, height);
+        dialog.show();
     }
 
     private void displayImage(String imageURL, ImageView imageView, final ProgressBar progressBar){
