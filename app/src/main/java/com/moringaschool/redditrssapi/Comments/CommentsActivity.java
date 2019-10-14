@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.moringaschool.redditrssapi.WebViewActivity;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -203,7 +204,7 @@ public class CommentsActivity extends AppCompatActivity {
     private void getUserComment(){
         final Dialog dialog = new Dialog(CommentsActivity.this);
         dialog.setTitle("dialog");
-        dialog.setContentView(R.layout.comment_input_dialog);
+       dialog.setContentView(R.layout.comment_input_dialog);
 
         int width = (int)(getResources().getDisplayMetrics().widthPixels*0.95);
         int height = (int)(getResources().getDisplayMetrics().heightPixels*0.6);
