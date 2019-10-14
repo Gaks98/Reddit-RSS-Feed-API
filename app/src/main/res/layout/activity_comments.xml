@@ -86,7 +86,17 @@
             android:id="@+id/commentsLoadingProgressBar"
             android:layout_centerInParent="true"/>
 
-
+        <TextView
+            android:layout_alignBottom="@id/commentsLoadingProgressBar"
+            android:layout_alignTop="@id/commentsLoadingProgressBar"
+            android:layout_alignRight="@id/commentsLoadingProgressBar"
+            android:layout_alignLeft="@id/commentsLoadingProgressBar"
+            android:text="Loading Comments..."
+            android:textStyle="bold"
+            android:textSize="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressText"/>
 
 
     </RelativeLayout>
