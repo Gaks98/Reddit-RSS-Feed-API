@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     tools:context="com.moringaschool.redditrssapi.MainActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -58,4 +61,5 @@
     android:layout_height="match_parent"
     android:id="@+id/listView"></ListView>
 
+</RelativeLayout>
 </RelativeLayout>
