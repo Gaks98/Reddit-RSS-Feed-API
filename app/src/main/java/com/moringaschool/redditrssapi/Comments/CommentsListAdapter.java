@@ -28,10 +28,6 @@ import java.util.ArrayList;
 import com.moringaschool.redditrssapi.Post;
 import com.moringaschool.redditrssapi.R;
 
-/**
- * Created by User on 4/4/2017.
- */
-
 public class CommentsListAdapter extends ArrayAdapter<Comment> {
 
     private static final String TAG = "CustomListAdapter";
