@@ -62,6 +62,7 @@ public class CommentsActivity extends AppCompatActivity {
     private static String postTitle;
     private static String postAuthor;
     private static String postUpdated;
+    private static String postID;
 
     private int defaultImage;
 
@@ -194,6 +195,7 @@ public class CommentsActivity extends AppCompatActivity {
         postTitle = incomingIntent.getStringExtra("@string/post_title");
         postAuthor = incomingIntent.getStringExtra("@string/post_author");
         postUpdated = incomingIntent.getStringExtra("@string/post_updated");
+        postID = incomingIntent.getStringExtra("@string/post_id");
 
         TextView title = (TextView) findViewById(R.id.postTitle);
         TextView author = (TextView) findViewById(R.id.postAuthor);
