@@ -139,7 +139,8 @@ public class MainActivity extends AppCompatActivity {
                                 entrys.get(i).getAuthor().getName(),
                                 entrys.get(i).getUpdated(),
                                 postContent.get(0),
-                                postContent.get(lastPosition)
+                                postContent.get(lastPosition),
+                                entrys.get(i).getId()
                         ));
                     }catch (NullPointerException e){
                         posts.add(new Post(
