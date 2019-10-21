@@ -69,6 +69,10 @@ public class CommentsActivity extends AppCompatActivity {
     private static String postUpdated;
     private static String postID;
 
+    private String modhash;
+    private String cookie;
+    private String username;
+
     private int defaultImage;
 
     private String currentFeed;
