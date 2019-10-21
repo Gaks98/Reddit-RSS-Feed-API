@@ -179,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("@string/post_title", posts.get(position).getTitle());
                         intent.putExtra("@string/post_author", posts.get(position).getAuthor());
                         intent.putExtra("@string/post_updated", posts.get(position).getDate_updated());
+                        intent.putExtra("@string/post_id", posts.get(position).getId());
                         startActivity(intent);
                     }
                 });
