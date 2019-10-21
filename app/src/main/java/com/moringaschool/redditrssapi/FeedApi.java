@@ -1,6 +1,7 @@
 package com.moringaschool.redditrssapi;
 
 import com.moringaschool.redditrssapi.Accounts.CheckLogin;
+import com.moringaschool.redditrssapi.Comments.CheckComment;
 import com.moringaschool.redditrssapi.model.Feed;
 
 import java.util.Map;
