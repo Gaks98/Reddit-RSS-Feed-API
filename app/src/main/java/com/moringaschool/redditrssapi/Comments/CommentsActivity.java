@@ -6,8 +6,10 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -17,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.moringaschool.redditrssapi.Accounts.LoginActivity;
 import com.moringaschool.redditrssapi.WebViewActivity;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -77,6 +80,8 @@ public class CommentsActivity extends AppCompatActivity {
         progressText = (TextView) findViewById(R.id.progressText);
         Log.d(TAG, "onCreate: Started.");
 
+        setupToolbar();
+
         mProgressBar.setVisibility(View.VISIBLE);
 
         setupImageLoader();
@@ -85,6 +90,26 @@ public class CommentsActivity extends AppCompatActivity {
 
         init();
 
+    }
+
+    private void setupToolbar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
+        setSupportActionBar(toolbar);
+
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Log.d(TAG, "onMenuItemClick: clicked menu item: " + item);
+
+                switch(item.getItemId()){
+                    case R.id.navLogin:
+                        Intent intent = new Intent(CommentsActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                }
+
+                return false;
+            }
+        });
     }
 
     private void init(){
