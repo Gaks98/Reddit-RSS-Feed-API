@@ -183,7 +183,7 @@ public class CommentsActivity extends AppCompatActivity {
                 mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        getUserComment(postID);
+                        getUserComment(mComments.get(position).getId());
                     }
                 });
 
