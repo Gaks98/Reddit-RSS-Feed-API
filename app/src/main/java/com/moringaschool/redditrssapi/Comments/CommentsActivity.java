@@ -340,8 +340,6 @@ public class CommentsActivity extends AppCompatActivity {
         );
     }
 
-    }
-
     private void displayImage(String imageURL, ImageView imageView, final ProgressBar progressBar){
 
         //create the imageloader object
