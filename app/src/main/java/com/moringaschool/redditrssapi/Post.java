@@ -6,6 +6,7 @@ public class Post {
     private String date_updated;
     private String postURL;
     private String thumbnailURL;
+    private String id;
 
     public Post(String title, String author, String date_updated, String postURL, String thumbnailURL) {
         this.title = title;
