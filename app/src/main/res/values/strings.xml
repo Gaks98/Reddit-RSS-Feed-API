@@ -6,7 +6,7 @@
     <string name="post_author">post_author</string>
     <string name="post_updated">post_updated</string>
     <string name="post_id">post_id</string>
-    <string name="SessionUsername">tabian.com.redditapp.Account.SessionUsername</string>
-    <string name="SessionModhash">tabian.com.redditapp.Account.SessionModhash</string>
-    <string name="SessionCookie">tabian.com.redditapp.Account.SessionCookie</string>
+    <string name="SessionUsername">com.moringaschool.redditrssapi.Account.SessionUsername</string>
+    <string name="SessionModhash">com.moringaschool.redditrssapi.Account.SessionModhash</string>
+    <string name="SessionCookie">com.moringaschool.redditrssapi.Account.SessionCookie</string>
 </resources>
