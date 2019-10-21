@@ -148,7 +148,8 @@ public class MainActivity extends AppCompatActivity {
                                 "None",
                                 entrys.get(i).getUpdated(),
                                 postContent.get(0),
-                                postContent.get(lastPosition)
+                                postContent.get(lastPosition),
+                                entrys.get(i).getId()
                         ));
                         Log.e(TAG, "onResponse: NullPointerException: " + e.getMessage() );
                     }
