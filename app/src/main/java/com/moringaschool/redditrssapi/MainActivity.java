@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.moringaschool.redditrssapi.Accounts.LoginActivity;
 import com.moringaschool.redditrssapi.Comments.CommentsActivity;
 import com.moringaschool.redditrssapi.model.Feed;
 import com.moringaschool.redditrssapi.model.entry.Entry;
@@ -186,5 +188,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "An Error Occured", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.navigation_menu, menu);
+        return true;
     }
 }
