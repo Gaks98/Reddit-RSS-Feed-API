@@ -91,6 +91,8 @@ public class CommentsActivity extends AppCompatActivity {
         progressText = (TextView) findViewById(R.id.progressText);
         Log.d(TAG, "onCreate: Started.");
 
+        getSessionParms();
+
         setupToolbar();
 
         mProgressBar.setVisibility(View.VISIBLE);
@@ -395,10 +397,18 @@ public class CommentsActivity extends AppCompatActivity {
 
         defaultImage = CommentsActivity.this.getResources().getIdentifier("@drawable/reddit_alien",null,CommentsActivity.this.getPackageName());
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.navigation_menu, menu);
         return true;
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        Log.d(TAG, "onPostResume: Resuming Activity");
+        getSessionParms();
     }
 }
 
