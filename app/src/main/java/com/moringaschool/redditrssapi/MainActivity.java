@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         btnRefreshFeed = (Button) findViewById(R.id.btnRefreshFeed);
         mFeedName = (EditText) findViewById(R.id.etFeedName);
 
+        setupToolbar();
+
         init();
 
         btnRefreshFeed.setOnClickListener(new View.OnClickListener() {
