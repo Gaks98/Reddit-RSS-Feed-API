@@ -3,9 +3,6 @@ package com.moringaschool.redditrssapi.Accounts;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by User on 5/2/2017.
- */
 
 public class Data {
 
