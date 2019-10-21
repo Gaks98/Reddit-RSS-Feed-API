@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.moringaschool.redditrssapi.FeedApi;
 import com.moringaschool.redditrssapi.R;
 import com.moringaschool.redditrssapi.URLS;
@@ -34,11 +33,17 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mUsername;
     private EditText mPassword;
 
+//    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+
+
         Log.d(TAG, "onCreate: started.");
         final Button btnLogin  = (Button) findViewById(R.id.btn_login);
         mPassword = (EditText) findViewById(R.id.input_password);
@@ -63,6 +68,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+
 
     private void login(final String username, String password){
 
