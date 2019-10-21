@@ -2,18 +2,21 @@ package com.moringaschool.redditrssapi.Comments;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -32,12 +35,14 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
 import com.moringaschool.redditrssapi.ExtractXML;
@@ -172,7 +177,7 @@ public class CommentsActivity extends AppCompatActivity {
                 mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        getUserComment();
+                        getUserComment(postID);
                     }
                 });
 
@@ -222,7 +227,7 @@ public class CommentsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: reply.");
-                getUserComment();
+                getUserComment(postID);
             }
         });
 
@@ -238,7 +243,7 @@ public class CommentsActivity extends AppCompatActivity {
 
     }
 
-    private void getUserComment(){
+    private void getUserComment(final String post_id){
         final Dialog dialog = new Dialog(CommentsActivity.this);
         dialog.setTitle("dialog");
        dialog.setContentView(R.layout.comment_input_dialog);
@@ -248,6 +253,87 @@ public class CommentsActivity extends AppCompatActivity {
 
         dialog.getWindow().setLayout(width, height);
         dialog.show();
+
+        Button btnPostComment = (Button) dialog.findViewById(R.id.btnPostComment);
+        final EditText comment = (EditText) dialog.findViewById(R.id.dialogComment);
+
+        btnPostComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: Attempting to post comment.");
+
+                //post comment stuff for retrofit
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(urls.COMMENT_URL)
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                FeedApi feedAPI = retrofit.create(FeedApi.class);
+
+                HashMap<String, String> headerMap = new HashMap<>();
+                headerMap.put("User-Agent", username);
+                headerMap.put("X-Modhash", modhash);
+                headerMap.put("cookie", "reddit_session=" + cookie);
+
+                Log.d(TAG, "btnPostComment:  \n" +
+                        "username: " + username + "\n" +
+                        "modhash: " + modhash + "\n" +
+                        "cookie: " + cookie + "\n"
+                );
+
+                String theComment = comment.getText().toString();
+
+                Call<CheckComment> call = feedAPI.submitComment(headerMap, "comment", post_id, theComment);
+
+                call.enqueue(new Callback<CheckComment>() {
+                    @Override
+                    public void onResponse(Call<CheckComment> call, Response<CheckComment> response) {
+                        try{
+                            //Log.d(TAG, "onResponse: feed: " + response.body().toString());
+                            Log.d(TAG, "onResponse: Server Response: " + response.toString());
+
+                            String postSuccess = response.body().getSuccess();
+                            if (postSuccess.equals("true")){
+                                dialog.dismiss();
+                                Toast.makeText(CommentsActivity.this, "Post Successful", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(CommentsActivity.this, "An Error Occured. Did you sign in?", Toast.LENGTH_SHORT).show();
+                            }
+
+                        }catch (NullPointerException e){
+                            Log.e(TAG, "onResponse: NullPointerException: " +e.getMessage() );
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<CheckComment> call, Throwable t) {
+                        Log.e(TAG, "onFailure: Unable to retrieve RSS: " + t.getMessage() );
+                        Toast.makeText(CommentsActivity.this, "An Error Occured", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+            }
+        });
+    }
+
+
+    /**
+     * get the session parms stored in memory from logging in
+     */
+    private void getSessionParms(){
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(CommentsActivity.this);
+
+        username = preferences.getString("@string/SessionUsername", "");
+        modhash = preferences.getString("@string/SessionModhash", "");
+        cookie = preferences.getString("@string/SessionCookie", "");
+
+        Log.d(TAG, "getSessionParms: Storing session variables:  \n" +
+                "username: " + username + "\n" +
+                "modhash: " + modhash + "\n" +
+                "cookie: " + cookie + "\n"
+        );
+    }
+
     }
 
     private void displayImage(String imageURL, ImageView imageView, final ProgressBar progressBar){
