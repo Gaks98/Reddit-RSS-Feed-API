@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.moringaschool.redditrssapi.Accounts.LoginActivity;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnRefreshFeed;
     private EditText mFeedName;
     private String currentFeed;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
