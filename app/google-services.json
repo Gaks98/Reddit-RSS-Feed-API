@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "442931899025-i2naue7o0e752qfd9hg6obcf5he5sih2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.redditrssapi",
+            "certificate_hash": "9bd0a0be61754d26a837666a2f05cda246cb47a4"
+          }
+        },
+        {
           "client_id": "442931899025-dc10fi8qrpmmicr81u2ui27b99l7qhod.apps.googleusercontent.com",
           "client_type": 3
         }
