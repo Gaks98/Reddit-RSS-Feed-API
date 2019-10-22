@@ -1,5 +1,6 @@
 package com.moringaschool.redditrssapi.Accounts;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -8,12 +9,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.moringaschool.redditrssapi.FeedApi;
+import com.moringaschool.redditrssapi.MainActivity;
 import com.moringaschool.redditrssapi.R;
+import com.moringaschool.redditrssapi.RegistrationActivity;
 import com.moringaschool.redditrssapi.URLS;
 
 import java.util.HashMap;
@@ -32,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private EditText mUsername;
     private EditText mPassword;
+    private TextView userRegistration;
 
 //    private FirebaseAuth mAuth;
 
@@ -48,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         final Button btnLogin  = (Button) findViewById(R.id.btn_login);
         mPassword = (EditText) findViewById(R.id.input_password);
         mUsername = (EditText) findViewById(R.id.input_username);
+        userRegistration = (TextView)findViewById(R.id.link_signup);
         mProgressBar = (ProgressBar) findViewById(R.id.loginRequestLoadingProgressBar);
         mProgressBar.setVisibility(View.GONE);
 
@@ -67,9 +73,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        userRegistration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, RegistrationActivity.class));
+            }
+        });
+
     }
-
-
 
     private void login(final String username, String password){
 
