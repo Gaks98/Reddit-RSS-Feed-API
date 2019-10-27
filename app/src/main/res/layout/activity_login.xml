@@ -77,6 +77,15 @@ android:fitsSystemWindows="true">
             android:text="No account yet? Create one"
             android:textSize="16dip" />
 
+        <TextView
+            android:id="@+id/link_camera"
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:text="Take some cool pics"
+            android:textSize="16dip" />
+
     </LinearLayout>
 
 
