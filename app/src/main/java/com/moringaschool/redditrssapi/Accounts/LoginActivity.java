@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.moringaschool.redditrssapi.Camera;
 import com.moringaschool.redditrssapi.FeedApi;
 import com.moringaschool.redditrssapi.MainActivity;
 import com.moringaschool.redditrssapi.R;
@@ -46,7 +48,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        TextView linkCamera = findViewById(R.id.link_camera);
+        linkCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent activity2Intent = new Intent(getApplicationContext(), Camera.class);
+                startActivity(activity2Intent);
 
+            }
+        });
 
 
         Log.d(TAG, "onCreate: started.");
