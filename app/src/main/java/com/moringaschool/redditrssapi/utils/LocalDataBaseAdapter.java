@@ -89,7 +89,7 @@ public class LocalDataBaseAdapter extends RecyclerView.Adapter<LocalDataBaseAdap
                         notifyItemRemoved(position);
                         notifyDataSetChanged();
                         myDatabase.close();
-                        ((MainActivity) context).loadFragment(new LocalFragment(), true);
+                        ((Camera) context).loadFragment(new LocalFragment(), true);
 
                     }
 
