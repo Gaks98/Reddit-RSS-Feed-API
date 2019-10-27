@@ -54,6 +54,10 @@ dependencies {
     //design
     implementation "com.google.android.material:material:1.1.0-alpha02"
 
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //@dimen dependency
+    implementation 'com.intuit.sdp:sdp-android:1.0.5'
+
 }
 //firebase plugin
 apply plugin: 'com.google.gms.google-services'
