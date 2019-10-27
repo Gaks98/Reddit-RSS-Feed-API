@@ -25,6 +25,7 @@
         <activity android:name=".Comments.CommentsActivity" />
         <activity android:name=".WebViewActivity" />
         <activity android:name=".Accounts.LoginActivity" />
+        <activity android:name=".Camera" />
     </application>
 
 </manifest>
