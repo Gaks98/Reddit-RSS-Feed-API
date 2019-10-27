@@ -21,8 +21,9 @@
             android:layout_height="match_parent"
             android:id="@+id/toolbar_main">
 
-
         </androidx.appcompat.widget.Toolbar>
+
+
 
 
     </RelativeLayout>
@@ -60,7 +61,12 @@
     android:layout_below="@+id/linLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/listView"></ListView>
+    android:id="@+id/listView">
+
+
+    </ListView>
+
+
 
 </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
