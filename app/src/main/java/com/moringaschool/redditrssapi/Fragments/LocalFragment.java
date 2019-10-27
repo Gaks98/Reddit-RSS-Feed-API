@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.redditrssapi.R;
+import com.moringaschool.redditrssapi.utils.DataBaseHandler;
+import com.moringaschool.redditrssapi.utils.LocalDataBaseAdapter;
+import com.moringaschool.redditrssapi.utils.LocalResponse;
 
 import java.util.ArrayList;
 

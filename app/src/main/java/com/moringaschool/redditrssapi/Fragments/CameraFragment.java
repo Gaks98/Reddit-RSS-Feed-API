@@ -21,8 +21,10 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import com.moringaschool.redditrssapi.Camera;
 import com.moringaschool.redditrssapi.MainActivity;
 import com.moringaschool.redditrssapi.R;
+import com.moringaschool.redditrssapi.utils.DataBaseHandler;
 
 import java.io.ByteArrayOutputStream;
 
@@ -67,7 +69,7 @@ public class CameraFragment extends Fragment {
         text1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity) getActivity()).loadFragment(new LocalFragment(), true);
+                ((Camera) getActivity()).loadFragment(new LocalFragment(), true);
             }
         });
         return view;
