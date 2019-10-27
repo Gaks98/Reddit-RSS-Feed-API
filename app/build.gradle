@@ -57,6 +57,8 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
     //@dimen dependency
     implementation 'com.intuit.sdp:sdp-android:1.0.5'
+    //recycler view
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
 }
 //firebase plugin
